@@ -86,3 +86,24 @@ function removeProduct(item) {
     inventoryList.removeChild(item);
 }
 
+
+//Task 4: Business Customer Section – Handling Event Bubbling
+
+// Select the parent container
+const customerSection = document.getElementById("customerSection");
+
+// Add a click event listener to the parent container
+customerSection.addEventListener("click", function () {
+    console.log("Customer section clicked!");
+});
+
+// Select all customer cards
+const customerCards = document.querySelectorAll(".customer-card");
+
+// Add a click event listener to each customer card
+customerCards.forEach(card => {
+    card.addEventListener("click", function (event) {
+        console.log("Customer card clicked!");
+        event.stopPropagation(); // Prevents the parent’s event from triggering
+    });
+});
