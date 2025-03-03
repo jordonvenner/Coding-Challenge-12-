@@ -48,3 +48,41 @@ cardsArray.forEach((card, index) => {
 });
 
 console.log("All metric cards updated successfully!");
+
+
+//Task 3: Dynamic Inventory Management – Adding and Removing Items
+
+
+// Select the inventory list
+const inventoryList = document.getElementById("inventoryList");
+
+// Function to add a new product
+function addProduct() {
+    // Create a new list item
+    const newItem = document.createElement("li");
+
+    // Generate a random product name
+    const productNames = ["Laptop", "Phone", "Headphones", "Tablet", "Smartwatch"];
+    const randomProduct = productNames[Math.floor(Math.random() * productNames.length)];
+
+    // Set attributes for the new item
+    newItem.setAttribute("class", "product-item"); // Adds styling class
+    newItem.setAttribute("data-product", randomProduct); // Custom attribute
+
+    // Set the text content to the product name
+    newItem.textContent = randomProduct;
+
+    // Add a click event to remove the item when clicked
+    newItem.addEventListener("click", function () {
+        removeProduct(newItem);
+    });
+
+    // Append the new item to the inventory list
+    inventoryList.appendChild(newItem);
+}
+
+// Function to remove a product when clicked
+function removeProduct(item) {
+    inventoryList.removeChild(item);
+}
+
